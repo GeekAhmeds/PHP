@@ -12,13 +12,9 @@ try {
 } catch (PDOException $e) {
   print_r($e->getMessage());
 }
-
-//(REPLACE TABLE_NAME {COLUMN} VALUES)
+//(REPLACE TABLE_NAME {COLUMN} VALUES) And u Can Use Insert Into
 $stmt = $pdo->prepare('REPLACE users(username) VALUES (:username)');
 $stmt->execute(['username' => 'mahmoud']);
 if ($stmt->rowCount()) {
-
   echo $pdo->lastInsertID();
 }
-
-
